@@ -37,7 +37,6 @@ class Help(Resource):
             "Currently, the supported categories include: PTS, STL, BLK, TOV, AST, REB, FT_PCT, FG3_PCT, FG_PCT, MIN, W, L. "\
             "In order to select a category, set the value of the category to '1' in the call, otherwise set to anything else. "\
             "Eg. /rankplayers?mode=custom&TEAM_ID=0&W=0&L=0&MIN=0&FG_PCT=0&FG3_PCT=0&FT_PCT=0&REB=1&AST=1&TOV=1&STL=1&BLK=1&PTS=1"
-
         return ret
 
 

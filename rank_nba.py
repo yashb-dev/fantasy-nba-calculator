@@ -7,7 +7,6 @@ def rank_players(args = {'mode':'official', 'W':False, 'L':False, 'MIN':False, '
     # initialize
     data = leaguedashplayerstats.LeagueDashPlayerStats(season="2018-19").get_data_frames()
     df = pandas.DataFrame(data=data[0])
-    print(list(df))
     scores = []
     totals = {}
     if args['mode'] == 'official':
