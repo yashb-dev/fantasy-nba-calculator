@@ -23,7 +23,7 @@ def rank_players(args = {'mode':'official', 'W':False, 'L':False, 'MIN':False, '
         #init scoring rules
         for cat in args:
             if cat not in totals:
-                if (cat != 'mode') & (args[cat] == 1):
+                if (cat != 'mode') & (args[cat] == True):
                     totals[cat] = 0
         #calc totals for each category
         for index, row in df.iterrows():
@@ -51,11 +51,10 @@ def rank_players(args = {'mode':'official', 'W':False, 'L':False, 'MIN':False, '
     #format output
     df["SCORES"] = scores
     df = df.sort_values(by=["SCORES"], ascending=False)
-    df = df.set_index("PLAYER_NAME")
     for col in df:
         if (col != 'PLAYER_NAME') & (col != 'SCORES'):
             df = df.drop(col, axis=1)
-    return df.to_dict()
+    return df.to_json(index=False, orient='table')
 
 
 if __name__ == '__main__':

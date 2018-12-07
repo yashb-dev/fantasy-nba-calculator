@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
-import 'react-bootstrap-table/css/react-bootstrap-table.css'
+import 'react-bootstrap-table/css/react-bootstrap-table.css';
 
 export default class table extends Component {
     constructor(props){
@@ -11,10 +11,12 @@ export default class table extends Component {
     }  
 
     componentDidMount(){
+        console.log(this.props.query);
         fetch(this.props.query)
         .then(res => res.json())
         .then(
             (myJson) => {
+                console.log(myJson);
                 this.setState({
                     data:JSON.parse(myJson)['data']
                 });
