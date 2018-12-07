@@ -3,4 +3,5 @@ This is a web application that retrieves NBA Player stats from the stats.nba.com
 
 #### How to Use:
 Open terminal to directory and run server.py
+
 Open a new terminal to directory and type npm start
