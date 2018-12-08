@@ -1,8 +1,10 @@
 import React, { Component } from "react";
-import Main from '../main';
+import MainTable from '../main_table';
 import ReactDOM from 'react-dom';
 import About from '../about';
-import Custom from '../custom';
+import Custom from '../custom_form';
+import MainTitle from '../main_title';
+import Pagination from './pagination';
 
 export default class navBar extends Component {
   loadMain() {
@@ -22,17 +24,25 @@ export default class navBar extends Component {
   }
   componentDidUpdate(){
       if (this.state.mode === 'main'){
-        ReactDOM.render(<Main />, document.getElementById('table'));
+        ReactDOM.render(<MainTitle />, document.getElementById('title'));
+        ReactDOM.render(<Pagination query="http://localhost:5002/rankplayers?mode=official" pages={10}/>, document.getElementById('pagination'));
+        ReactDOM.render(<MainTable />, document.getElementById('table'));
       }
       if (this.state.mode === 'custom'){
-        ReactDOM.render(<Custom />, document.getElementById('table'));
+        ReactDOM.render(<Custom />, document.getElementById('title'));
+        ReactDOM.render(null, document.getElementById('pagination'));
+        ReactDOM.render(null, document.getElementById('table'));
       }
       if (this.state.mode === 'about'){
-        ReactDOM.render(<About />, document.getElementById('table'));
+        ReactDOM.render(<About />, document.getElementById('title'));
+        ReactDOM.render(null, document.getElementById('pagination'));
+        ReactDOM.render(null, document.getElementById('table'));
       }
   }
   componentDidMount(){
-    ReactDOM.render(<Main />, document.getElementById('table'));
+    ReactDOM.render(<MainTitle />, document.getElementById('title'));
+    ReactDOM.render(<Pagination query="http://localhost:5002/rankplayers?mode=official" pages={10}/>, document.getElementById('pagination'));
+    ReactDOM.render(<MainTable />, document.getElementById('table'));
   }
   constructor(props) {
     super(props);

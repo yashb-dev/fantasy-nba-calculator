@@ -5,6 +5,7 @@ import * as serviceWorker from './serviceWorker';
 import Nav from './components/navBar';
 import 'bootstrap/dist/css/bootstrap.css';
 
+
 ReactDOM.render(<Nav />, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
